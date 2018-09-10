@@ -1,0 +1,25 @@
+{
+    "name": "rodrigojusto/phodastic",
+    "description": "Library with many methods for Math, Physics & other Scientifics Areas",
+    "type": "library",
+    "license": "GPL",
+    "keywords": ["Math", "Physics"],
+    "authors": [
+        {
+            "name": "Rodrigo Souza Justo",
+            "email": "rodrigo.justo@outlook.com.br"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "6.*"
+    },
+    "autoload":
+    {
+        "psr-4":
+        {
+            "RodrigoJusto\\Phodastic\\": "src"
+        }
+    }
+}
