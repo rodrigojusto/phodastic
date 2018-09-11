@@ -46,7 +46,7 @@ class Math
      * @return float     
      *
      */ 
-    function harmonicMean(array $values, $count = null, bool $ignoreInvalidValues = false)
+    public static function harmonicMean(array $values, $count = null, bool $ignoreInvalidValues = false)
     {
         if(is_numeric($count) && $count != null){
             $values = array_splice($values, 0, $count);
