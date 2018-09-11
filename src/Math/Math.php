@@ -37,23 +37,50 @@ class Math
         return $hmean;
     }
 
-    public static function harmonicMean(array $values, int $countValues=null ): float
+    /**
+     * Get the HarmonicMean
+     * 
+     * @param array $values
+     * @param null $count
+     * @param bool $ignoreInvalidValues
+     * @return float     
+     *
+     */ 
+    function harmonicMean(array $values, $count = null, bool $ignoreInvalidValues = false)
     {
-        /** Initializes $sum with 0 */
-        $sum = 0.0;
-        /** Verifies if countValues has especified otherwise get from size of $values */
-        if($countValues == null){
-            $countValues = sizeof($values);
+        if(is_numeric($count) && $count != null){
+            $values = array_splice($values, 0, $count);
         }
-        foreach ($values as $value){
-            try{
-                $sum = $sum + (float)(1/$value);
-            }catch (Exception $e){
-                return $e->getMessage();
+
+        // Applies function param shift
+        if(func_num_args() == 2 && is_bool($count)) {
+            $ignoreInvalidValues = $count;
+        }
+
+        $values = array_map(function($value) use ($ignoreInvalidValues){
+            if ($ignoreInvalidValues && !is_numeric($value)) {
+                return null;
             }
+
+            if(!is_numeric($value)) {
+                throw new Exception('Null, Zero or non numeric values found in array.');
+            }
+
+            return $value + 0;
+
+        }, $values);
+
+        if($ignoreInvalidValues) {
+            $values = array_filter($values, function ($value) {
+                return $value !== null;
+            });
         }
-        /** Calculate Harmonic Mean and return after */
-        $hmean = (float)($countValues/$sum);
-        return $hmean;
+
+        $mean = array_reduce($values, function($carry, $value) use ($ignoreInvalidValues) {
+            return $carry + (float) 1 / $value;
+        }, 0);
+
+        return (float) sizeof($values) / $mean;
+
     }
 }
