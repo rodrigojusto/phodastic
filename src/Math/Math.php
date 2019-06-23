@@ -8,7 +8,6 @@
 
 namespace RodrigoJusto\Phodastic\Math;
 
-
 use Exception;
 
 class Math
