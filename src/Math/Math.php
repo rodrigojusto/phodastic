@@ -9,34 +9,10 @@
 namespace RodrigoJusto\Phodastic\Math;
 
 
-use PHPUnit\Runner\Exception;
+use Exception;
 
 class Math
 {
-    public static function harmonicMeanIgnoreInvalidValues(array $values, int $countValues=null ): float
-    {
-        /** Initializes $sum with 0 */
-        $sum = 0.0;
-        /** Verifies if countValues has especified otherwise get from size of $values */
-        if($countValues == null){
-            $countValues = sizeof($values);
-        }
-        foreach ($values as $value){
-            /** Checks if it is a valid number otherwise subtract 1 from $ countValue and ignore the current value */
-            if(!is_numeric($value) || $value==0){
-                $countValues--;
-                continue;
-            }
-
-            $sum = $sum + (float)(1/$value);
-        }
-        /** Calculate Harmonic Mean and return after */
-        $hmean = (float)($countValues/$sum);
-
-        unset($sum, $values, $countValues);
-        return $hmean;
-    }
-
     /**
      * Get the HarmonicMean
      * 
