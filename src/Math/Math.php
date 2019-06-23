@@ -8,8 +8,7 @@
 
 namespace RodrigoJusto\Phodastic\Math;
 
-
-use PHPUnit\Runner\Exception;
+use \Exception;
 
 class Math
 {
@@ -55,17 +54,6 @@ class Math
         /** Calculate Harmonic Mean and return after */
         $hmean = (float)($countValues/$sum);
         return $hmean;
-    }
-
-    /** Finantial Math interests (need to be refactor) **/
-    public static function simpleInterest(float $capital, float $tax, int $period):float{
-        $interest = $capital * $tax * $time;
-        return $interest;
-    }
-
-    public static function compoundInterest(float $capital,float $tax, int $period):float{
-        $interest = $capital * (1+$tax) ^ $period;
-        return $interest;
     }
 
 }
