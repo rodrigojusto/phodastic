@@ -5,6 +5,16 @@ Phodastic is a Library with function for Math, Physics & Scientific Areas (Chemi
 - Math Functons:
   * Harmonic Mean With Ignore Invalid Values (Strings and Zeros).
   * Harmonic Mean (Without Ignore Invalid Values).
-  - Finantial Math:
-    * Simple Interest.
-    * Compound Interest.
+  - Financial Math:
+    * Simple Interest
+    * Compound Interest
+    * Future Value
+    * Present Value
+    * Sales Tax
+    * Amount With Tax
+    * Monthly Payment (Loan)
+    * Straight-Line Depreciation
+    * Net Present Value (NPV)
+    * Return On Investment (ROI)
+    * Inflation-Adjusted Value
+    * Effective Annual Rate
